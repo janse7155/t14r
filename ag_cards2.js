@@ -52,10 +52,21 @@ var squareGame = {
          columnHand.cards[i] = this.cardGrid[i].cards[index];
       }
       return columnHand.handPoints();
-   }
+   },
+   gameTotal: 0,
+   winTotal: 50,
+   gameResult: function () {
+      if (this.gameTotal >= this.winTotal) {
+         return "Winner";
+      } else {
+         return "No Winner";
+      }
+   },
 };
 
-
+pokerHand.prototype.insertCard = function (card, index) {
+   this.cards[index] = card;
+};
 
 
 
@@ -87,7 +98,7 @@ pokerCard.prototype.replaceFromDeck = function(pokerDeck) {
    this.rank = pokerDeck.cards[0].rank;
    this.rankValue = pokerDeck.cards[0].rankValue;
    pokerDeck.cards.shift();
-}
+};
 
 
 /* Constructor function for poker decks */
